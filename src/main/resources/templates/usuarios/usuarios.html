@@ -10,19 +10,21 @@
 		<thead>
 			<tr>
 				<td>ID</td>
-				<td>Título</td>
+				<td>Nome</td>
+				<td>Email</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:if="${autores.empty}">
+			<tr th:if="${usuarios.empty}">
 				<td colspan="2">Sem livros</td>
 			</tr>
 
-			<tr th:each="autor : ${autores}">
-				<td th:text="${autor.id}">1</td>
+			<tr th:each="usuario : ${usuarios}">
+				<td th:text="${usuario.id}">1</td>
 				<td>
-					<a href="#" th:href="@{'/autores/'+${autor.id}}" th:text="${autor.nome}"> Título </a>
+					<a href="#" th:href="@{'/usuarios/'+${usuario.id}}" th:text="${usuario.username}"> Título </a>
 				</td>
+			<td th:text="${usuario.email}"></td>
 			</tr>
 		</tbody>
 	</table>

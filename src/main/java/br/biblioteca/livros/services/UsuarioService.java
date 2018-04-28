@@ -13,12 +13,15 @@ public class UsuarioService {
 	
 	@Autowired
 	UsuarioRepository usuariorepository;
-	
-	
+
 	public List<Usuario> findAll(){
 		
-		
 		return usuariorepository.findAll();
+	}
+	
+	public void salvarUsuario(Usuario usuario) {
+		
+		usuariorepository.save(usuario);
 	}
 
 }
