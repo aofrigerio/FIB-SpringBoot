@@ -17,7 +17,7 @@ public class Livro {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 	
 	private String titulo;
 	
@@ -31,37 +31,55 @@ public class Livro {
 	
 	@OneToMany(mappedBy="livro")
 	private List<Review> review = new ArrayList<>();
-	
-	public int getId() {
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public String getFoto() {
 		return foto;
 	}
+
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
+
 	public int getQuantidade() {
 		return quantidade;
 	}
+
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+
 	public Autor getAutor() {
 		return autor;
 	}
+
 	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
+
+	public List<Review> getReview() {
+		return review;
+	}
+
+	public void setReview(List<Review> review) {
+		this.review = review;
+	}
+	
 	
 	
 }

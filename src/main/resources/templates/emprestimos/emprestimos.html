@@ -10,7 +10,8 @@
 		<thead>
 			<tr>
 				<td>ID</td>
-				<td>Título</td>
+				<td>Data Devolução</td>
+				<td>Data Emprestimo</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -21,8 +22,9 @@
 			<tr th:each="emprestimo : ${emprestimos}">
 				<td th:text="${emprestimo.id}">1</td>
 				<td>
-					<a href="#" th:href="@{'/emprestimos/'+${emprestimo.id}}" th:text="${emprestimo.nome}"> Título </a>
+					<a href="#" th:href="@{'/emprestimos/'+${emprestimo.id}}" th:text="${emprestimo.id}"> Título </a>
 				</td>
+			<td th:text="{emprestimo.data_devolucao}"></td>
 			</tr>
 		</tbody>
 	</table>

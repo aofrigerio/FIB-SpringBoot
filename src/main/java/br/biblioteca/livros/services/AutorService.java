@@ -11,9 +11,13 @@ import br.biblioteca.livros.repository.AutorRepository;
 public class AutorService {
 
 	@Autowired
-	AutorRepository autorrepository;
+	AutorRepository autorRepository;
 	
 	public List<Autor> listaAutor(){
-		return autorrepository.findAll();
+		return autorRepository.findAll();
+	}
+	
+	public void salvarAutor(Autor autor) {
+		autorRepository.save(autor);
 	}
 }
