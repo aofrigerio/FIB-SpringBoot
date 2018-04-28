@@ -14,16 +14,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:if="${livros.empty}">
+			<tr th:if="${autores.empty}">
 				<td colspan="2">Sem livros</td>
 			</tr>
 
-			<tr th:each="livro : ${livros}">
-				<td th:text="${livro.id}">1</td>
+			<tr th:each="autor : ${autores}">
+				<td th:text="${autor.id}">1</td>
 				<td>
-					<a href="#" th:href="@{'/livros/'+${livro.id}}" th:text="${livro.titulo}"> Título </a>
+					<a href="#" th:href="@{'/autores/'+${autor.id}}" th:text="${autor.nome}"> Título </a>
 				</td>
-				<td th:text="${livro.autor.nome}"></td>
 			</tr>
 		</tbody>
 	</table>
