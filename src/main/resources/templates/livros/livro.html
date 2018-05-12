@@ -2,15 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="UTF-8" />
-<title>Insert title here</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<meta charset="UTF-8" />
+	<title>Livros</title>    
 </head>
+
+
 <body>
-	<table>
+<h1>Livros</h1>
+
+	<a href="#" th:href="@{'/livros/novo'}">
+		<button type="button" class="btn btn-primary btn-lg">Inserir Livro</button>
+	</a>
+
+	<table class="table">
 		<thead>
 			<tr>
 				<td>ID</td>
 				<td>Título</td>
+				<td>Qtd. Páginas</td>
+				<td>Autor</td>
+				<td>-</td>
+				<td>-</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,9 +37,25 @@
 				<td>
 					<a href="#" th:href="@{'/livros/'+${livro.id}}" th:text="${livro.titulo}"> Título </a>
 				</td>
-				
+				<td>
+					<a href="#" th:href="@{'/livros/'+${livro.id}}" th:text="${livro.quantidade}"> Título </a>
+				</td>
+				<td th:text="${livro.autor.nome}">1</td>
+				<td>
+					<a href="#" th:href="@{'/livros/alterar/'+${livro.id}}">
+					 <button type="button" class="btn btn-primary">Alterar</button> 
+					 </a>
+				</td>
+				<td>
+					<a href="#" th:href="@{'/livros/excluir/'+${livro.id}}">
+					<button type="button" class="btn btn-danger">Excluir</button>
+					</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+	
+
+   
 </body>
 </html>

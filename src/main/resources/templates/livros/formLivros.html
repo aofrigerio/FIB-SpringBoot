@@ -2,18 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
 <head>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
 
+	<h1>Inserir/Alterar Livros</h1>
 	<form id="livroForm" th:action="@{/livros/(formLivros)}" method="post" th:object="${livro}" action="#" >
+		<div class="form-group">
+			<input type="hidden" th:field="*{id}"/>
+			<label for="tituloLabel">Título:</label>
+			<input id="tituloLabel" type="text" th:field="*{titulo}" />
+			<span class="badge badge-pill badge-warning" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Nome Error</span><br/>
+		</div>	
 		
-		Título: <input type="text" th:field="*{titulo}" /><br/>
-		Total de Páginas: <input type="text" th:field="*{quantidade}" /><br/>
-		
-		<input type="submit" value="gravar" />
-
+		<div class="form-group">		
+			
+			<label for="qtdPaginasLabel">Total de Páginas:</label>
+			<input id="qtdPaginasLabel" type="text" th:field="*{quantidade}" /> 
+			<span class="badge badge-pill badge-warning" th:if="${#fields.hasErrors('quantidade')}" th:errors="*{quantidade}">Quantidade de pagina Error</span><br/>
+		</div>
+			<input type="submit"  class="btn btn-primary mb-2" value="Gravar" />
 	</form>
+	
+	<br/>
+	<a href="#" th:href="@{/livros}" class="badge badge-info">Voltar</a>
+	
 </body>
 </html>

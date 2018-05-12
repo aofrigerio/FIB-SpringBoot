@@ -19,17 +19,36 @@ public class LivroService {
 	@Autowired
 	AutorRepository autorRepository;
 	
-	
+	//lista todos
 	public List<Livro> listaLivros(){		
 			return livroRepository.findAll();
 	}
 	
+	//find by one
+	public Livro BuscaLivroId(Long id) {
+		return livroRepository.findOne(id);
+	}
+	
+	//excluir
+	public void excluirLivro(long id) {
+		
+		try {
+			livroRepository.delete(id);
+		} catch (Exception e) {
+			return;
+		}
+		
+		
+	}
+	
+	//salvar
 	public void salvaLivro(Livro livro) {
 		
-			
 		Autor autor = autorRepository.findOne(2l);
 		
 		livro.setAutor(autor);
 		livroRepository.save(livro);
 	}
+	
+	
 }
