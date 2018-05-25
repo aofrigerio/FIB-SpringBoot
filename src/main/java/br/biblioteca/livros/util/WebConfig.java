@@ -1,4 +1,4 @@
-package br.biblioteca.livro.util;
+package br.biblioteca.livros.util;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
