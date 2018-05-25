@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
 <head>
 <meta charset="UTF-8" />
-<title>Insert title here</title>
+<title>Autores</title>
 </head>
 <body>
-	<table>
+<h1 layout:fragment="header">Autores 
+	<a th:href="@{/autores/novo}" class="btn btn-sm btn-info">Novo <i class="glyphicon glyphicon-plus"></i></a>
+</h1>
+	<div layout:fragment="content">
+	<table class="table">
 		<thead>
 			<tr>
 				<td>ID</td>
 				<td>Título</td>
+				<td></td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,8 +29,19 @@
 				<td>
 					<a href="#" th:href="@{'/autores/'+${autor.id}}" th:text="${autor.nome}"> Título </a>
 				</td>
+				<td>
+									<a href="#" th:href="@{'/autores/alterar/'+${autor.id}}">
+						<button type="button" class="btn btn-primary">Alterar</button> 
+						 </a>
+						 </td>
+					 <td>
+					 	<a href="#" th:href="@{'/autores/excluir/'+${autor.id}}">
+					 	<button type="button" class="btn btn-danger">Excluir</button> 
+					 	</a>
+					 <td>
 			</tr>
 		</tbody>
 	</table>
+	</div>
 </body>
 </html>

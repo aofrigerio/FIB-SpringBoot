@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import br.biblioteca.livros.beans.Usuario;
 import br.biblioteca.livros.services.UsuarioService;
@@ -17,7 +18,7 @@ public class UsuarioController {
 	@Autowired
 	UsuarioService usuarioServivces;
 	
-	@GetMapping("/usuarios")
+	@GetMapping("/usuarios/list")
 	public ModelAndView autores() {
 		
 		List<Usuario> usuario = usuarioServivces.findAll();
@@ -31,7 +32,8 @@ public class UsuarioController {
 		return "usuarios/formUsuarios";
 	}
 	
-	@PostMapping(params="formUsuarios")
+	//@PostMapping(params="formUsuarios")
+	@RequestMapping("usuarios/gravar")
 	public ModelAndView createUsuarios(Usuario usuario) {
 		
 		usuarioServivces.salvarUsuario(usuario);

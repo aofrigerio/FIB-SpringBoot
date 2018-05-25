@@ -1,18 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8" />
 <title>Insert title here</title>
 </head>
 <body>
-
-<h1 layout:fragment="header">Usuários 
-	<a th:href="@{/usuarios/novo}" class="btn btn-sm btn-info">Novo <i class="glyphicon glyphicon-plus"></i></a>
-</h1>
-
-	<div layout:fragment = "content" class="container">
-	<table class="table">
+	<table>
 		<thead>
 			<tr>
 				<td>ID</td>
@@ -34,6 +28,5 @@
 			</tr>
 		</tbody>
 	</table>
-	</div>
 </body>
 </html>

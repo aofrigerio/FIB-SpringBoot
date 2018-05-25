@@ -10,18 +10,9 @@
 <body>
 
 	<h1>Inserir/Alterar Livros</h1>
-	<div layout:fragment="content" class="container">
-	
-	<form id="livroForm" th:action="@{/livros/gravar}" method="post" th:object="${livro}" action="#" enctype="multipart/form-data" >
+	<form id="livroForm" th:action="@{/livros/(formLivros)}" method="post" th:object="${livro}" action="#" >
 		<div class="form-group">
 			<input type="hidden" th:field="*{id}"/>
-			
-			<div>
-				<label for="pathCapa" >Capa do livro</label> 
-				<input type="file" name="capaUrl" />
-				<span th:if="${message}" style="color: red;" th:text="${message}">Message Error</span>
-			</div>
-	
 			<label for="tituloLabel">Título:</label>
 			<input id="tituloLabel" type="text" th:field="*{titulo}" />
 			<span class="badge badge-pill badge-warning" th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}">Nome Error</span><br/>
@@ -35,7 +26,6 @@
 		</div>
 			<input type="submit"  class="btn btn-primary mb-2" value="Gravar" />
 	</form>
-	</div>
 	
 	<br/>
 	<a href="#" th:href="@{/livros}" class="badge badge-info">Voltar</a>
