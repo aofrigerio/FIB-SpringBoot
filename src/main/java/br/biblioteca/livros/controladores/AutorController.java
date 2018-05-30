@@ -34,11 +34,19 @@ public class AutorController {
 	}
 	
 	//@PostMapping(params = "formAutor")
-	@RequestMapping("autores/gravar")
+	@PostMapping(value = "autores/gravar")
 	public ModelAndView create(Autor autor) {
 			
 		 autorservice.salvarAutor(autor);
 	   	 return new ModelAndView("redirect:/autores/list");
+	}
+	
+	@RequestMapping("/autores/excluir/{id}")
+	public ModelAndView delete(Autor autor) {
+		
+		autorservice.deletarAutor(autor);
+		
+		return new ModelAndView("redirect:/autores/list");
 	}
 	
 	

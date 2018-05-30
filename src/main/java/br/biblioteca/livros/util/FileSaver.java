@@ -1,17 +1,18 @@
 package br.biblioteca.livros.util;
+
 import java.io.File;
 import java.io.IOException;
-
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
+
 
 @Component
 public class FileSaver {
 
 	public String write(String baseFolder, MultipartFile file) {
 		
-		String realPath = "/Volumes/Arquivos/FIB/POS/workspace/livros/" + baseFolder;
-
+		String realPath = "C:\\Users\\NextSI\\git\\FIB-SpringBoot\\src\\main\\resources\\static\\" + baseFolder;			
+			
 		// se for windows, verificar corretamenteo path da pasta, por exemplo
 		//  String realPath = "D:\\Arquivos\\" + baseFolder;
 

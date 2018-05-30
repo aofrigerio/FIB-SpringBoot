@@ -37,20 +37,20 @@ public class LivroController {
 	}	
 	
 	//create
-	@GetMapping("livros/novo")
+	@GetMapping("/livros/novo")
 	public String createForm(@ModelAttribute Livro livro) {
 		return "livros/formLivros";
 	} 
 	
 	//save
-	//@PostMapping(value = "/gravar")//(params = "formLivros")
-	@RequestMapping(value="livros/gravar")
+	@PostMapping(value = "/livros/gravar")//(params = "formLivros")
 	public ModelAndView create(@RequestParam("capaUrl") MultipartFile capaUrl, @ModelAttribute @Valid Livro livro, BindingResult bindingResult, Model model) {
+		
 		
 		//imagem
 		if(capaUrl.getOriginalFilename().equals("")) {
 			model.addAttribute("message", "A capa não pode ser vazia");
-			return new ModelAndView("livros/novo");
+			return new ModelAndView("livros/formLivros");
 		}else {
 			if(capaUrl.getContentType().equals("image/jpeg")){
 				String webPath = new FileSaver().write("uploaded-images",capaUrl);

@@ -9,18 +9,22 @@
 </head>
 <body>
 
-	<h1>Inserir/Alterar Livros</h1>
+	<h1 layout:fragment="header">Inserir/Alterar Livros</h1>
 	<div layout:fragment="content" class="container">
+	
+	<!--  <div​> <img ​​th:if ​="${livro.foto}"  ​th:src​= "​@{'/' + ${livro.foto}}" ​width ​=  "100px​"​ /> </div>  -->
 	
 	<form id="livroForm" th:action="@{/livros/gravar}" method="post" th:object="${livro}" action="#" enctype="multipart/form-data" >
 		<div class="form-group">
 			<input type="hidden" th:field="*{id}"/>
-			
+				
+
 			<div>
 				<label for="pathCapa" >Capa do livro</label> 
 				<input type="file" name="capaUrl" />
 				<span th:if="${message}" style="color: red;" th:text="${message}">Message Error</span>
 			</div>
+			<br>
 	
 			<label for="tituloLabel">Título:</label>
 			<input id="tituloLabel" type="text" th:field="*{titulo}" />
@@ -35,10 +39,11 @@
 		</div>
 			<input type="submit"  class="btn btn-primary mb-2" value="Gravar" />
 	</form>
-	</div>
 	
 	<br/>
-	<a href="#" th:href="@{/livros}" class="badge badge-info">Voltar</a>
+	<a href="#" th:href="@{/livros/list}" class="badge badge-info">Voltar</a>
+	</div>
+	
 	
 </body>
 </html>

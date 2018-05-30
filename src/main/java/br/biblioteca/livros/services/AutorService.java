@@ -20,4 +20,8 @@ public class AutorService {
 	public void salvarAutor(Autor autor) {
 		autorRepository.save(autor);
 	}
+	
+	public void deletarAutor(Autor autor) {
+		autorRepository.delete(autor);
+	}
 }
