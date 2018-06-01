@@ -38,7 +38,7 @@ public class UsuarioController {
 		
 		usuarioServivces.salvarUsuario(usuario);
 		
-	   	return new ModelAndView("redirect:/usuarios");
+	   	return new ModelAndView("redirect:/usuarios/list");
 	}
 	
 }

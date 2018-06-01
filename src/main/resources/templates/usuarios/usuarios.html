@@ -18,6 +18,8 @@
 				<td>ID</td>
 				<td>Nome</td>
 				<td>Email</td>
+				<td></td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,6 +33,16 @@
 					<a href="#" th:href="@{'/usuarios/'+${usuario.id}}" th:text="${usuario.username}"> Título </a>
 				</td>
 			<td th:text="${usuario.email}"></td>
+							<td>
+					<a href="#" th:href="@{'/usuarios/alterar/'+${usuario.id}}">
+					 <button type="button" class="btn btn-primary">Alterar</button> 
+					 </a>
+				</td>
+				<td>
+					<a href="#" th:href="@{'/usuarios/excluir/'+${usuario.id}}">
+					<button type="button" class="btn btn-danger">Excluir</button>
+					</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

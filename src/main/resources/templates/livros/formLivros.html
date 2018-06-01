@@ -11,8 +11,10 @@
 
 	<h1 layout:fragment="header">Inserir/Alterar Livros</h1>
 	<div layout:fragment="content" class="container">
-	
-	<!--  <div​> <img ​​th:if ​="${livro.foto}"  ​th:src​= "​@{'/' + ${livro.foto}}" ​width ​=  "100px​"​ /> </div>  -->
+		
+     <div>
+		<img th:if="${livro.foto}" th:src="@{ '/img/' + ${livro.foto}}" width="80px" />
+	 </div>
 	
 	<form id="livroForm" th:action="@{/livros/gravar}" method="post" th:object="${livro}" action="#" enctype="multipart/form-data" >
 		<div class="form-group">

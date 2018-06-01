@@ -6,15 +6,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1 layout:fragment="header">Inclusão/Alteração Usuário </h1>
 
-	<form id="UsuarioForm" th:action="@{/livros/(formUsuarios)}" method="post" th:object="${usuario}" action="#" >
+	<div layout:fragment="content" class="container">
+	<form id="UsuarioForm" th:action="@{/usuarios/gravar}" method="post" th:object="${usuario}" action="#" >
 		
-		Nome: <input type="text" th:field="*{username}" /><br/>
-		Email: <input type="text" th:field="*{email}" /><br/>
-		Passwords: <input type="password" th:field="*{password}" /><br/>
+		<label for="userName">Nome:</label>
+			<input id="userName" type="text" th:field="*{username}" /><br/>
+		<label for="userEmail">Email:</label>
+			<input id="userEmail" type="text" th:field="*{email}" /><br/>
+		<label for="userPass">Passwords:</label>
+			<input id="userPass" type="password" th:field="*{password}" /><br/>
 		
 		<input type="submit" value="gravar" />
 
 	</form>
+	</div>
 </body>
 </html>
